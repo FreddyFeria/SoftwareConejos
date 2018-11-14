@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
+import { ItemMenu } from './entities/itemMenu'
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 
-export class itemMenu {
-  icono: string;
-  nombre: string;
-  ruta: string;
-}
-
 export class CatalogService {
-	private items: itemMenu[];
+	private items: ItemMenu[];
 	constructor() { }
 
-	getMenuLateral(): itemMenu[]{
-		this.items = [{icono: 'dashboard', nombre: 'Dashboard', ruta: ''}, {icono: 'pets', nombre: 'Animales', ruta: ''}]
+	getMenuLateral(): ItemMenu[] {
+		this.items = [{ icono: 'dashboard', nombre: 'Dashboard', ruta: '', hijos: [] }, 
+		{ icono: 'pets', nombre: 'Animales', ruta: '', hijos: [
+			{ icono: 'pets', nombre: 'Individuos', ruta: '', hijos: [] }] 
+		}]
 		return this.items;
 	}
 }

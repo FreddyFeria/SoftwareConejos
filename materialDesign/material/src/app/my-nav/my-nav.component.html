@@ -9,8 +9,11 @@
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list *ngFor="let menuItem of menuData">
       <a mat-list-item href="{{ menuItem.ruta }}">
-        <i class="material-icons">{{ menuItem.icono }}</i>
+        <mat-icon>{{ menuItem.icono }}</mat-icon>
         {{ menuItem.nombre }}
+        <span *ngIf="menuItem.hijos && menuItem.hijos.length">
+          <mat-icon> expand_more </mat-icon>
+        </span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
