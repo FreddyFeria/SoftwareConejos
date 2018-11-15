@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CatalogService, itemMenu }  from '../catalog.service'
+import { CatalogService } from '../catalog.service'
 
 @Component({
   selector: 'app-my-nav',
@@ -10,14 +10,14 @@ import { CatalogService, itemMenu }  from '../catalog.service'
   styleUrls: ['./my-nav.component.css']
 })
 export class MyNavComponent {
-	menuData: Object;
+  menuData: Object;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
-    
+
   constructor(private breakpointObserver: BreakpointObserver, private menuCatalog: CatalogService) {
-  	this.menuData = this.menuCatalog.getMenuLateral();
+    this.menuData = this.menuCatalog.getMenuLateral();
   }
-  
-  }
+
+}
