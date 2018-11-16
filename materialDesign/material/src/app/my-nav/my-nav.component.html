@@ -1,11 +1,19 @@
+<mat-toolbar color="primary">
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span>Aplicacion</span>
+</mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list *ngFor="let menuItem of menuData">
       <mat-list-item>
-        <mat-icon>{{ menuItem.icono }}</mat-icon>
-        <span class="nombreItem">{{ menuItem.nombre }}</span>
+        <a routerLink="{{ menuItem.ruta }}" (click)="drawer.toggle()">
+          <mat-icon> {{ menuItem.icono }} </mat-icon>
+          <span> {{ menuItem.nombre }} </span>
+        </a>
         <span style="flex: 1 0 auto;"></span>
         <span *ngIf="menuItem.hijos && menuItem.hijos.length">
           <mat-icon (click)="onItemSelected()" [@menuListButton]="expanded ? 'desplegar': 'replegar'">expand_more</mat-icon>
@@ -14,12 +22,6 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>Aplicacion</span>
-    </mat-toolbar>
-    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
