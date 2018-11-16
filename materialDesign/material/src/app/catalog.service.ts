@@ -11,10 +11,10 @@ export class CatalogService {
 
 	getMenuLateral(): ItemMenu[]{
 		this.items = [
-			{icono: 'dashboard', nombre: 'Dashboard', ruta: '', hijos: []}, 
-			{icono: 'pets', nombre: 'Animales', ruta: '', hijos: [
+			{icono: 'dashboard', nombre: 'Estadisticas', ruta: '/dashboard', hijos: [
 				{icono: 'pets', nombre: 'Individuos', ruta: '', hijos: []}
-			]}]
+			]}, 
+			{icono: 'pets', nombre: 'Animales', ruta: '', hijos: []}]
 		return this.items;
 	}
 }
