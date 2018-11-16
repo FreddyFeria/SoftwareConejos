@@ -26,9 +26,10 @@ export class MyNavComponent {
     this.menuData = this.menuCatalog.getMenuLateral();
   }
 
-  onItemSelected() {
-    console.log('Status: ' + this.expanded);
-    this.expanded = !this.expanded;
+  onItemSelected(seleccion: boolean) {
+    console.log('Status: ' + seleccion);
+    seleccion = !seleccion;
+    return seleccion;
   }
 
 }

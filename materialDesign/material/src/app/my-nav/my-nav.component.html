@@ -16,7 +16,7 @@
         </a>
         <span style="flex: 1 0 auto;"></span>
         <span *ngIf="menuItem.hijos && menuItem.hijos.length">
-          <mat-icon (click)="onItemSelected()" [@menuListButton]="expanded ? 'desplegar': 'replegar'">expand_more</mat-icon>
+          <mat-icon (click)="onItemSelected(menuItem.seleccion)" [@menuListButton]="menuItem.seleccion ? 'desplegar': 'replegar'">expand_more</mat-icon>
         </span>
       </mat-list-item>
     </mat-nav-list>
