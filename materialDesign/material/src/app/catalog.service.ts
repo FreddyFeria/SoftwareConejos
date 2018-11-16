@@ -11,7 +11,9 @@ export class CatalogService {
 
 	getMenuLateral(): ItemMenu[]{
 		this.items = [
-			{icono: 'dashboard', nombre: 'Dashboard', ruta: '', hijos: []}, 
+			{icono: 'dashboard', nombre: 'Dashboard', ruta: '', hijos: [
+				{icono: 'dashboard', nombre: 'Dashboard', ruta: '', hijos: []}
+			]}, 
 			{icono: 'pets', nombre: 'Animales', ruta: '', hijos: [
 				{icono: 'pets', nombre: 'Individuos', ruta: '', hijos: []}
 			]}]
