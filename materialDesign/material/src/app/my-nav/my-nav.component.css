@@ -1,12 +1,11 @@
-.sidenav-container {
+:host{
   height: 100%;
+  overflow: hidden;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
 }
-
-.sidenav {
-  width: 200px;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
+mat-toolbar {
+  display: inline-flex;
+  flex-shrink: 0;
 }
