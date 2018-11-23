@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyNavComponent } from './my-nav/my-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule } from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 
 import { CatalogService } from './catalog.service'
@@ -29,7 +30,8 @@ import { CatalogService } from './catalog.service'
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule
   ],
   providers: [CatalogService],
   bootstrap: [AppComponent]

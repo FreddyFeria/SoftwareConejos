@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CatalogService } from '../catalog.service'
 import { menuListButton } from "../animations/animations";
+import { ItemMenu } from '../entites/item-menu';
 
 @Component({
   selector: 'app-my-nav',
@@ -26,10 +27,14 @@ export class MyNavComponent {
     this.menuData = this.menuCatalog.getMenuLateral();
   }
 
-  onItemSelected(seleccion: boolean) {
+  onItemSelected(item: ItemMenu) {
+    console.log('Status: ' + item.seleccion);
+    item.seleccion = !item.seleccion;
+  }
+
+  onItemSelected2(seleccion: boolean) {
     console.log('Status: ' + seleccion);
     seleccion = !seleccion;
-    return seleccion;
   }
 
 }

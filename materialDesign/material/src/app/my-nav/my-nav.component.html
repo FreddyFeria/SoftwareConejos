@@ -8,18 +8,15 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-nav-list *ngFor="let menuItem of menuData">
-      <mat-list-item>
-        <a routerLink="{{ menuItem.ruta }}" (click)="drawer.toggle()">
+    <mat-expansion-panel *ngFor="let menuItem of menuData">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
           <mat-icon> {{ menuItem.icono }} </mat-icon>
           <span> {{ menuItem.nombre }} </span>
-        </a>
-        <span style="flex: 1 0 auto;"></span>
-        <span *ngIf="menuItem.hijos && menuItem.hijos.length">
-          <mat-icon (click)="onItemSelected(menuItem.seleccion)" [@menuListButton]="menuItem.seleccion ? 'desplegar': 'replegar'">expand_more</mat-icon>
-        </span>
-      </mat-list-item>
-    </mat-nav-list>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
