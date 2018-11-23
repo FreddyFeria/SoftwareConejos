@@ -8,15 +8,30 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-expansion-panel *ngFor="let menuItem of menuData">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <mat-icon> {{ menuItem.icono }} </mat-icon>
-          <span> {{ menuItem.nombre }} </span>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
+    <div *ngFor="let menuItem of menuData">
+      <mat-accordion>
+        <mat-expansion-panel *ngIf="menuItem.hijos && menuItem.hijos.length; else resultadoSimple">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-icon> {{ menuItem.icono }} </mat-icon>
+              {{ menuItem.nombre }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+              <button mat-button *ngFor="let menuItemHijo of menuItem.hijos"  id="botonMenu">
+                <mat-icon> {{ menuItemHijo.icono }} </mat-icon>
+                {{ menuItemHijo.nombre }}
+              </button>
+        </mat-expansion-panel>
+        <ng-template #resultadoSimple>
+          <!-->mat-card-->
+            <button mat-button id="botonMenu">
+              <mat-icon> {{ menuItem.icono }} </mat-icon>
+              {{ menuItem.nombre }}
+            </button>
+          <!-->/mat-card-->
+        </ng-template>
+      </mat-accordion>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>

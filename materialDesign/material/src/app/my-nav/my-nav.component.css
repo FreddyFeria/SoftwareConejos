@@ -9,3 +9,15 @@ mat-toolbar {
   display: inline-flex;
   flex-shrink: 0;
 }
+
+#botonMenu{
+  
+  width: 100%; 
+  text-align: left;
+}
+
+:temp{
+  position: absolute; 
+  top: 0; 
+  left: 0;
+}
