@@ -10,24 +10,24 @@
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <div *ngFor="let menuItem of menuData">
       <mat-accordion>
-        <mat-expansion-panel *ngIf="menuItem.hijos && menuItem.hijos.length; else resultadoSimple">
+        <mat-expansion-panel *ngIf="menuItem.hijos && menuItem.hijos.length; else resultadoSimple" [class.mat-elevation-z0]="true">
           <mat-expansion-panel-header>
             <mat-panel-title>
               <mat-icon> {{ menuItem.icono }} </mat-icon>
               {{ menuItem.nombre }}
             </mat-panel-title>
           </mat-expansion-panel-header>
-              <button mat-button *ngFor="let menuItemHijo of menuItem.hijos"  id="botonMenu">
+              <a mat-button *ngFor="let menuItemHijo of menuItem.hijos"  id="botonMenu">
                 <mat-icon> {{ menuItemHijo.icono }} </mat-icon>
                 {{ menuItemHijo.nombre }}
-              </button>
+              </a>
         </mat-expansion-panel>
         <ng-template #resultadoSimple>
           <!-->mat-card-->
-            <button mat-button id="botonMenu">
+            <a mat-button id="botonMenu">
               <mat-icon> {{ menuItem.icono }} </mat-icon>
               {{ menuItem.nombre }}
-            </button>
+            </a>
           <!-->/mat-card-->
         </ng-template>
       </mat-accordion>
