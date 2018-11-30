@@ -1,11 +1,22 @@
 <h4>Registro del animal</h4>
 <mat-form-field>
-  <mat-select placeholder="Seleccione">
-    <mat-option [value]="1">
+  <mat-select placeholder="Seleccione" [(value)]="selected">
+    <mat-option value="1">
       Registrar nuevo animal
     </mat-option>
-    <mat-option [value]="2">
+    <mat-option value="2">
       Seleccionar una cria
     </mat-option>
   </mat-select>
-</mat-form-field>
+  </mat-form-field>
+  <div *ngIf="selected==1">
+    <mat-form-field>
+      <input matInput placeholder="Nombre" [(ngModel)]="animal.nombre">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Genero" [(ngModel)]='animal.genero'>
+    </mat-form-field>
+  </div>
+  <div *ngIf="selected==2">
+    You selected: 2
+  </div>
