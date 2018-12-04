@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EntidadRegistro } from '../entidades/entidad-registro';
 
 @Component({
   selector: 'app-registro-form',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registro-form.component.scss']
 })
 export class RegistroFormComponent implements OnInit {
+  private entidad: EntidadRegistro;
 
   constructor() { }
 

@@ -6,7 +6,12 @@ import { MyDashboardComponent } from "./my-dashboard/my-dashboard.component";
 const routes: Routes = [{
   path: 'dashboard',
   component: MyDashboardComponent
-}];
+},
+{
+  path: 'registro',
+  loadChildren: './registro/registro.module#RegistroModule'
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
