@@ -8,13 +8,18 @@ const routes: Routes = [{
   component: MyDashboardComponent
 },
 {
+  path: '',
+  redirectTo: '/dashboard',
+  pathMatch: 'full'
+},
+{
   path: 'registro',
   loadChildren: './registro/registro.module#RegistroModule'
 }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,   { enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

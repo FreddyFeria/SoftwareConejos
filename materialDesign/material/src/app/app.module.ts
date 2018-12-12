@@ -9,6 +9,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule } from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
+import { RegistroModule } from './registro/registro.module';
 
 import { CatalogService } from './catalog.service'
 
@@ -31,7 +32,8 @@ import { CatalogService } from './catalog.service'
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    RegistroModule
   ],
   providers: [CatalogService],
   bootstrap: [AppComponent]
