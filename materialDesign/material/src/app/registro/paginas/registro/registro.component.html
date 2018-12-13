@@ -18,22 +18,22 @@
     <mat-radio-button [value]="Hembra" >Hembra</mat-radio-button>
   </mat-radio-group>
   <mat-form-field>
-    <input matInput placeholder="Color" [(ngModel)]='entidad.genero'>
+    <input matInput placeholder="Color" [(ngModel)]='entidad.color'>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Raza" [(ngModel)]='entidad.genero'>
+    <input matInput placeholder="Raza" [(ngModel)]='entidad.raza'>
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="number" placeholder="Peso" [(ngModel)]='entidad.genero'>
+    <input matInput type="number" placeholder="Peso" [(ngModel)]='entidad.peso'>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Madre" [(ngModel)]='entidad.genero'>
+    <input matInput placeholder="Madre" [(ngModel)]='entidad.madre'>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Padre" [(ngModel)]='entidad.genero'>
+    <input matInput placeholder="Padre" [(ngModel)]='entidad.padre'>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" [(ngModel)]='entidad.genero' placeholder="Fecha de Nacimiento">
+    <input matInput [matDatepicker]="picker" [(ngModel)]='entidad.fechaNacimiento' placeholder="Fecha de Nacimiento">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>

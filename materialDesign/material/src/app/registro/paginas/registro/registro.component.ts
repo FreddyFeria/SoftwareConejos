@@ -10,7 +10,9 @@ import { EntidadRegistro } from '../../entidades/entidad-registro';
 export class RegistroComponent implements OnInit {
   private entidad: EntidadRegistro;
   
-  constructor() { }
+  constructor() { 
+    this.entidad = {} as EntidadRegistro;
+  }
 
   ngOnInit() {
   }
