@@ -1,3 +1,4 @@
+<!--https://medium.com/letsboot/quick-start-with-angular-material-and-flex-layout-1b065aa1476c-->
 <h4>Registro del animal</h4>
 <mat-form-field>
   <mat-select placeholder="Seleccione" [(value)]="selected">
@@ -9,8 +10,8 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
-<div *ngIf="selected==1">
-  <mat-form-field>
+<div *ngIf="selected==1" fxLayout="row" fxLayout.xs="column">
+  <mat-form-field fxFlex="80%">
     <input matInput placeholder="Nombre" [(ngModel)]="entidad.nombre">
   </mat-form-field>
   <mat-radio-group [(ngModel)]='entidad.sexo'>
