@@ -1,46 +1,47 @@
-<!--https://medium.com/letsboot/quick-start-with-angular-material-and-flex-layout-1b065aa1476c-->
-<h4>Registro del animal</h4>
-<mat-form-field>
-  <mat-select placeholder="Seleccione" [(value)]="selected">
-    <mat-option value="1">
-      Registrar nuevo animal
-    </mat-option>
-    <mat-option value="2">
-      Seleccionar una cria
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<div *ngIf="selected==1" fxLayout="row wrap" fxLayout.xs="column" layout-wrap fxLayoutGap="5%">
-  <mat-form-field fxFlex="60%" fxFlex.xs="1">
-    <input matInput placeholder="Nombre" [(ngModel)]="entidad.nombre">
+<div style="padding: 0 10px">
+  <h4>Registro del animal</h4>
+  <mat-form-field>
+    <mat-select placeholder="Seleccione" [(value)]="selected">
+      <mat-option value="1">
+        Registrar nuevo animal
+      </mat-option>
+      <mat-option value="2">
+        Seleccionar una cria
+      </mat-option>
+    </mat-select>
   </mat-form-field>
-  <div fxFlex="30%" fxLayoutGap="20px">
-    <mat-radio-group fxLayout="column" [(ngModel)]='entidad.sexo'>
-      <mat-radio-button [value]="Macho">Macho</mat-radio-button>
-      <mat-radio-button [value]="Hembra">Hembra</mat-radio-button>
-    </mat-radio-group>
+  <div *ngIf="selected==1" fxLayout="row wrap" fxLayout.xs="column" layout-wrap fxLayoutGap="5%">
+    <mat-form-field fxFlex="60%" fxFlex.xs="1">
+      <input matInput placeholder="Nombre" [(ngModel)]="entidad.nombre">
+    </mat-form-field>
+    <div fxFlex="30%" fxLayoutGap="20px">
+      <mat-radio-group fxLayout="column" [(ngModel)]='entidad.sexo'>
+        <mat-radio-button [value]="Macho">Macho</mat-radio-button>
+        <mat-radio-button [value]="Hembra">Hembra</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <mat-form-field fxFlex="25%">
+      <input matInput placeholder="Color" [(ngModel)]='entidad.color'>
+    </mat-form-field>
+    <mat-form-field fxFlex="25%">
+      <input matInput placeholder="Raza" [(ngModel)]='entidad.raza'>
+    </mat-form-field>
+    <mat-form-field fxFlex="25%">
+      <input matInput type="number" placeholder="Peso" [(ngModel)]='entidad.peso'>
+    </mat-form-field>
+    <mat-form-field fxFlex="45%">
+      <input matInput placeholder="Madre" [(ngModel)]='entidad.madre'>
+    </mat-form-field>
+    <mat-form-field fxFlex="45%">
+      <input matInput placeholder="Padre" [(ngModel)]='entidad.padre'>
+    </mat-form-field>
+    <mat-form-field fxFlex="30%">
+      <input matInput [matDatepicker]="picker" [(ngModel)]='entidad.fechaNacimiento' placeholder="Fecha de Nacimiento">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
   </div>
-  <mat-form-field fxFlex="25%">
-    <input matInput placeholder="Color" [(ngModel)]='entidad.color'>
-  </mat-form-field>
-  <mat-form-field fxFlex="25%">
-    <input matInput placeholder="Raza" [(ngModel)]='entidad.raza'>
-  </mat-form-field>
-  <mat-form-field fxFlex="25%">
-    <input matInput type="number" placeholder="Peso" [(ngModel)]='entidad.peso'>
-  </mat-form-field>
-  <mat-form-field fxFlex="45%">
-    <input matInput placeholder="Madre" [(ngModel)]='entidad.madre'>
-  </mat-form-field>
-  <mat-form-field fxFlex="45%">
-    <input matInput placeholder="Padre" [(ngModel)]='entidad.padre'>
-  </mat-form-field>
-  <mat-form-field fxFlex="30%">
-    <input matInput [matDatepicker]="picker" [(ngModel)]='entidad.fechaNacimiento' placeholder="Fecha de Nacimiento">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</div>
-<div *ngIf="selected==2">
-  You selected: 2
+  <div *ngIf="selected==2">
+    You selected: 2
+  </div>
 </div>
