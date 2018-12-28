@@ -1,0 +1,27 @@
+:host{
+    height: 100%;
+    overflow: hidden;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-toolbar {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+  
+  #botonMenu{
+    width: 100%; 
+    text-align: left;
+  }
+  
+  :temp{
+    position: absolute; 
+    top: 0; 
+    left: 0;
+  }
+  
+  mat-sidenav-content{
+    left: 0;
+  }

@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { MyDashboardComponent } from "./my-dashboard/my-dashboard.component";
 
-const routes: Routes = [{
+const routes: Routes = [
+  /*
+  {
   path: 'dashboard',
   component: MyDashboardComponent
-},
-{
-  path: 'registro',
-  loadChildren: './registro/registro.module#RegistroModule'
-}
+  },
+  {
+    path: 'registro',
+    loadChildren: './registro/registro.module#RegistroModule'
+  }
+  */
 ];
 
 @NgModule({

@@ -1,19 +1,18 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CatalogService } from '../catalog.service'
-import { menuListButton } from "../animations/animations";
+import { CatalogService } from '../core/servicios/'
 
 @Component({
-  selector: 'app-my-nav',
-  templateUrl: './my-nav.component.html',
-  styleUrls: ['./my-nav.component.css'],
-  animations: [menuListButton]
+  selector: 'app-root',
+  templateUrl: './navegacion.component.html',
+  styleUrls: ['./navegacion.component.scss']
 })
-export class MyNavComponent {
+export class NavegacionComponent implements OnInit {
+  title = 'Software conejos';
   menuData: Object;
-
+  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
@@ -23,7 +22,9 @@ export class MyNavComponent {
     this.menuData = this.menuCatalog.getMenuLateral();
   }
 
-  onItemSelected() {
+  ngOnInit() {
   }
 
+  onItemSelected() {
+  }
 }
