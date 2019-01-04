@@ -8,13 +8,16 @@ import { MatGridListModule } from "@angular/material";
 import { MatCardModule } from "@angular/material";
 import { MatMenuModule } from "@angular/material";
 import { MatExpansionModule } from "@angular/material";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LayoutModule } from "@angular/cdk/layout";
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MatSliderModule, DateAdapter } from '@angular/material'; 
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   declarations: [],
   imports: [
-    BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -24,10 +27,16 @@ import { LayoutModule } from "@angular/cdk/layout";
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [
-    BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
@@ -37,7 +46,14 @@ import { LayoutModule } from "@angular/cdk/layout";
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class AngularMaterialModule {}

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ItemNota } from "../../../entites";
+import { NotasDetailComponent } from "./notas-detail/notas-detail.component";
 
 @Component({
   selector: 'app-notas',

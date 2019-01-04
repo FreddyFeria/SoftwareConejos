@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatSelectModule } from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
-import { MatRadioModule } from '@angular/material';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule, MatSliderModule, DateAdapter } from '@angular/material'; 
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { AngularMaterialModule } from "../angular-material/angular-material.module";
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RegistroRoutingModule } from './registro-routing.module';
 import { RegistroComponent } from './paginas/registro/registro.component';
@@ -17,13 +13,9 @@ import { RegistroComponent } from './paginas/registro/registro.component';
   imports: [
     CommonModule,
     RegistroRoutingModule,
-    MatSelectModule,
+    AngularMaterialModule,
     FormsModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule,
+    ReactiveFormsModule,
     FlexLayoutModule
   ],
   declarations: [RegistroComponent]

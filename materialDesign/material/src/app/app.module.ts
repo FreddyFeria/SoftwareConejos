@@ -1,22 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { CoreModule } from "./core/core.module";
 import { AngularMaterialModule } from "./angular-material/angular-material.module";
+import { FormsModule } from '@angular/forms';
 
 import { NavegacionComponent } from './navegacion/navegacion.component'
+
 
 @NgModule({
   declarations: [
     NavegacionComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule.forRoot(),
-    AngularMaterialModule
+    AngularMaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [NavegacionComponent]

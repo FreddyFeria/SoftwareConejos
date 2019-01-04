@@ -11,37 +11,137 @@
     </mat-select>
   </mat-form-field>
   <div *ngIf="selected==1" fxLayout="row wrap" fxLayout.xs="column" layout-wrap fxLayoutGap="5%">
-    <mat-form-field fxFlex="60%" fxFlex.xs="1">
-      <input matInput placeholder="Nombre" [(ngModel)]="entidad.nombre">
-    </mat-form-field>
-    <div fxFlex="30%" fxLayoutGap="20px">
-      <mat-radio-group fxLayout="column" [(ngModel)]='entidad.sexo'>
-        <mat-radio-button [value]="Macho">Macho</mat-radio-button>
-        <mat-radio-button [value]="Hembra">Hembra</mat-radio-button>
-      </mat-radio-group>
-    </div>
-    <mat-form-field fxFlex="25%">
-      <input matInput placeholder="Color" [(ngModel)]='entidad.color'>
-    </mat-form-field>
-    <mat-form-field fxFlex="25%">
-      <input matInput placeholder="Raza" [(ngModel)]='entidad.raza'>
-    </mat-form-field>
-    <mat-form-field fxFlex="25%">
-      <input matInput type="number" placeholder="Peso" [(ngModel)]='entidad.peso'>
-    </mat-form-field>
-    <mat-form-field fxFlex="45%">
-      <input matInput placeholder="Madre" [(ngModel)]='entidad.madre'>
-    </mat-form-field>
-    <mat-form-field fxFlex="45%">
-      <input matInput placeholder="Padre" [(ngModel)]='entidad.padre'>
-    </mat-form-field>
-    <mat-form-field fxFlex="30%">
-      <input matInput [matDatepicker]="picker" [(ngModel)]='entidad.fechaNacimiento' placeholder="Fecha de Nacimiento">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <!--form [formGroup]="formulario" (ngSubmit)="guardar()" #forulario="ngForm"-->
+      <mat-form-field fxFlex="60%" fxFlex.xs="1">
+        <input matInput placeholder="Nombre" [(ngModel)]="entidad.nombre" required>
+      </mat-form-field>
+      <div fxFlex="30%" fxLayoutGap="20px">
+        <mat-radio-group fxLayout="column" [(ngModel)]='entidad.sexo'>
+          <mat-radio-button [value]="Macho">Macho</mat-radio-button>
+          <mat-radio-button [value]="Hembra">Hembra</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field fxFlex="25%">
+        <input matInput placeholder="Color" [(ngModel)]='entidad.color' required>
+      </mat-form-field>
+      <mat-form-field fxFlex="25%">
+        <input matInput placeholder="Raza" [(ngModel)]='entidad.raza' required>
+      </mat-form-field>
+      <mat-form-field fxFlex="25%">
+        <input matInput type="number" placeholder="Peso" [(ngModel)]='entidad.peso' required>
+      </mat-form-field>
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Madre" [(ngModel)]='entidad.madre' required>
+      </mat-form-field>
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Padre" [(ngModel)]='entidad.padre' required>
+      </mat-form-field>
+      <mat-form-field fxFlex="30%">
+        <input matInput [matDatepicker]="picker" [(ngModel)]='entidad.fechaNacimiento' placeholder="Fecha de Nacimiento" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button type="submit" mat-button>Guardar</button>
+      <button type="button" mat-button>Limpiar</button>
+    <!--/form-->
   </div>
   <div *ngIf="selected==2">
     You selected: 2
   </div>
 </div>
+<!--
+<div pads>
+  <h4>Registro del animal</h4>
+  <mat-form-field>
+    <mat-select placeholder="Seleccione" [(value)]="selected">
+      <mat-option value="1">
+        Registrar nuevo animal
+      </mat-option>
+      <mat-option value="2">
+        Seleccionar una cria
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="selected==1" fxLayout="row wrap" fxLayout.xs="column" layout-wrap fxLayoutGap="5%">
+    <form [formGroup]="registroAnimalForm" (ngSubmit)="registrar(registroAnimalForm.value)">
+      <mat-form-field fxFlex="60%" fxFlex.xs="1">
+        <input matInput placeholder="Nombre" formControlName="nombre" required>
+		<mat-error *ngIf="nombre.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <div fxFlex="30%" fxLayoutGap="20px">
+        <mat-radio-group fxLayout="column" [(ngModel)]='entidad.sexo'>
+          <mat-radio-button [value]="Macho">Macho</mat-radio-button>
+          <mat-radio-button [value]="Hembra">Hembra</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-form-field fxFlex="25%">
+        <input matInput placeholder="Color" formControlName='color' required>
+      </mat-form-field>
+      <mat-form-field fxFlex="25%">
+        <input matInput placeholder="Raza" formControlName='raza' required>
+      </mat-form-field>
+      <mat-form-field fxFlex="25%">
+        <input matInput type="number" placeholder="Peso" formControlName='peso' required>
+      </mat-form-field>
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Madre" formControlName='madre'>
+      </mat-form-field>
+      <mat-form-field fxFlex="45%">
+        <input matInput placeholder="Padre" formControlName='padre'>
+      </mat-form-field>
+      <mat-form-field fxFlex="30%">
+        <input matInput [matDatepicker]="picker" formControlName='fechaNacimiento' placeholder="Fecha de Nacimiento" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button type="submit" mat-button>Guardar</button>
+      <button type="button" mat-button>Limpiar</button>
+    </form>
+  </div>
+  <div *ngIf="selected==2">
+    You selected: 2
+  </div>
+</div>
+
+
+this.validations_form = this.formBuilder.group({
+	nombre: new FormControl('', Validators.required),
+	color: new FormControl('', Validators.required),
+	raza: new FormControl('', Validators.required),
+	peso: new FormControl('', Validators.required),
+	fechaNacimiento: new FormControl('', Validators.required)
+});
+
+
+<mat-error *ngFor="let validation of account_validation_messages.email">
+	<mat-error class="error-message" *ngIf="accountDetailsForm.get('email').hasError(validation.type) && (accountDetailsForm.get('email').dirty || accountDetailsForm.get('email').touched)">{{validation.message}}
+	</mat-error>
+</mat-error>
+
+account_validation_messages = {
+'username': [
+  { type: 'required', message: 'Username is required' },
+  { type: 'minlength', message: 'Username must be at least 5 characters long' },
+  { type: 'maxlength', message: 'Username cannot be more than 25 characters long' },
+  { type: 'pattern', message: 'Your username must contain only numbers and letters' },
+  { type: 'validUsername', message: 'Your username has already been taken' }
+],
+'email': [
+  { type: 'required', message: 'Email is required' },
+  { type: 'pattern', message: 'Enter a valid email' }
+],
+'confirm_password': [
+  { type: 'required', message: 'Confirm password is required' },
+  { type: 'areEqual', message: 'Password mismatch' }
+],
+'password': [
+  { type: 'required', message: 'Password is required' },
+  { type: 'minlength', message: 'Password must be at least 5 characters long' },
+  { type: 'pattern', message: 'Your password must contain at least one uppercase, one lowercase, and one number' }
+],
+'terms': [
+  { type: 'pattern', message: 'You must accept terms and conditions' }
+]
+}
+
+-->
