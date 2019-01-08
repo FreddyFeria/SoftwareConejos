@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EntidadRegistro } from '../../entidades/entidad-registro';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -10,19 +11,30 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class RegistroComponent implements OnInit {
   private entidad: EntidadRegistro;
-  private formulario: FormGroup;
-  
-  constructor(private formBuilder: FormBuilder) { 
+  registroAnimalForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
     this.entidad = {} as EntidadRegistro;
+    this.createForm();
   }
 
   ngOnInit() {
-    this.formulario = this.formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
+
   }
 
-  guardar(){
+  createForm() {
+    this.registroAnimalForm = this.formBuilder.group({
+      nombre: new FormControl('', Validators.required),
+      color: new FormControl('', Validators.required),
+      raza: new FormControl('', Validators.required),
+      peso: new FormControl('', Validators.required),
+      sexo: new FormControl('', Validators.required),
+      madre: new FormControl(''),      
+      padre: new FormControl(''),
+      fechaNacimiento: new FormControl('', Validators.required)
+    });
+  }
+  guardar() {
     console.log("Validado")
   }
 
