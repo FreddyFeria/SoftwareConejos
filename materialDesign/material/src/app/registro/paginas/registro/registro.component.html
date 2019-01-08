@@ -1,4 +1,4 @@
-<div pads>
+<div class="pads">
   <h4>Registro del animal</h4>
   <mat-form-field>
     <mat-select placeholder="Seleccione" [(value)]="selected">
@@ -10,11 +10,11 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <div *ngIf="selected==1" fxLayout="row wrap" fxLayout.xs="column" layout-wrap fxLayoutGap="5%">
-    <form [formGroup]="registroAnimalForm" (ngSubmit)="registrar(registroAnimalForm.value)">
+  <form [formGroup]="registroAnimalForm" (ngSubmit)="registrar(registroAnimalForm.value)">
+    <div *ngIf="selected==1" fxLayout="row wrap" fxLayout.xs="column" layout-wrap fxLayoutGap="5%">
       <mat-form-field fxFlex="60%">
         <input matInput placeholder="Nombre" formControlName='nombre' required>
-        <!--mat-error *ngIf="nombre.invalid">{{getErrorMessage()}}</mat-error-->
+        <mat-error *ngIf="!registroAnimalForm.get('nombre').valid">{{getErrorMessage(registroAnimalForm.get('nombre'))}}</mat-error>
       </mat-form-field>
       <div fxFlex="30%" fxLayoutGap="20px">
         <mat-radio-group fxLayout="column" formControlName='sexo'>
@@ -45,33 +45,14 @@
       </mat-form-field>
       <button type="submit" mat-button>Guardar</button>
       <button type="button" mat-button>Limpiar</button>
-    </form>
-  </div>
-  <div *ngIf="selected==2">
-    You selected: 2
-  </div>
-</div>
-<!--
-<div pads>
-  <h4>Registro del animal</h4>
-  <mat-form-field>
-    <mat-select placeholder="Seleccione" [(value)]="selected">
-      <mat-option value="1">
-        Registrar nuevo animal
-      </mat-option>
-      <mat-option value="2">
-        Seleccionar una cria
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <div *ngIf="selected==1" fxLayout="row wrap" fxLayout.xs="column" layout-wrap fxLayoutGap="5%">
-    
-  </div>
+    </div>
+  </form>
   <div *ngIf="selected==2">
     You selected: 2
   </div>
 </div>
 
+<!--
 
 this.validations_form = this.formBuilder.group({
 	nombre: new FormControl('', Validators.required),

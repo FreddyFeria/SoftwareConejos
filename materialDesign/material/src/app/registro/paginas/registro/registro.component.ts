@@ -38,4 +38,8 @@ export class RegistroComponent implements OnInit {
     console.log("Validado")
   }
 
+  getErrorMessage(object: Object){
+    console.log("Nuevo error")
+  }
+
 }
