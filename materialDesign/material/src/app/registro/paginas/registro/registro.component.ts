@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EntidadRegistro } from '../../entidades/entidad-registro';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 
 
@@ -28,10 +28,10 @@ export class RegistroComponent implements OnInit {
       { type: 'min', message: 'El peso debe ser mayor a 0' }
     ],
     'sexo': [
-      { type: 'pattern', message: 'El campo sexo es obligatorio' }
+      { type: 'required', message: 'El campo sexo es obligatorio' }
     ],
     'fechaNacimiento': [
-      { type: 'pattern', message: 'El campo fecha de nacimiento es obligatorio' }
+      { type: 'required', message: 'El campo fecha de nacimiento es obligatorio' }
     ]
   }
 
@@ -61,9 +61,11 @@ export class RegistroComponent implements OnInit {
   }
 
   getErrorMessage(control: string) {
-    if (this.registroAnimalForm.get(control).dirty || this.registroAnimalForm.get(control).touched) {
-      var errorType = Object.keys(this.registroAnimalForm.get(control).errors)[0];
-      return (this.mensajes_error[control].find(x => x.type == errorType).message);
+    let formControl: AbstractControl;
+    formControl = this.registroAnimalForm.get(control);
+    if (formControl.dirty || formControl.touched) {
+      var errorType = Object.keys(formControl.errors)[0];
+      return (this.mensajes_error[control].find((x: {type: string; message: string;}) => x.type == errorType).message);
     }
   }
 }
