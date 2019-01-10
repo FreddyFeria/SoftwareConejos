@@ -14,10 +14,10 @@
     <div *ngIf="selected==1" fxLayout="row wrap" fxLayout.xs="column" layout-wrap fxLayoutGap="5%">
       <mat-form-field fxFlex="60%">
         <input matInput placeholder="Nombre" formControlName='nombre' required>
-        <mat-error *ngIf="!registroAnimalForm.get('nombre').valid">{{getErrorMessage(registroAnimalForm.get('nombre'))}}</mat-error>
+        <mat-error *ngIf="!registroAnimalForm.get('nombre').valid">{{getErrorMessage('nombre')}}</mat-error>
       </mat-form-field>
       <div fxFlex="30%" fxLayoutGap="20px">
-        <mat-radio-group fxLayout="column" formControlName='sexo'>
+        <mat-radio-group fxLayout="column" formControlName='sexo' required>
           <mat-radio-button value="Macho" checked=true>Macho</mat-radio-button>
           <mat-radio-button value="Hembra">Hembra</mat-radio-button>
         </mat-radio-group>
@@ -30,6 +30,7 @@
       </mat-form-field>
       <mat-form-field fxFlex="25%">
         <input matInput type="number" placeholder="Peso" formControlName='peso' required>
+        <span matSuffix> gramos </span>
       </mat-form-field>
       <mat-form-field fxFlex="45%">
         <input matInput placeholder="Madre" formControlName='madre'>
