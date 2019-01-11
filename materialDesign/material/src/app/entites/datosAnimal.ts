@@ -1,9 +1,11 @@
-export interface Animal {
+import { GeneroEnum } from './generoEnum';
+
+export interface DatosAnimal {
     id: Number;
     nombre: String;
     color: String;
     raza: String;
-    sexo: "Macho" | "Hembra";
+    sexo: GeneroEnum;
     peso: String;
     padre: String;
     madre: String;

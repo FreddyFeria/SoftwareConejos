@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { EntidadRegistro } from '../../entidades/entidad-registro';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { FormControl } from '@angular/forms';
-import { Animal } from 'src/app/entites/animal';
+import { DatosAnimal } from 'src/app/entites/datosAnimal';
 import { AnimalesService } from 'src/app/core/servicios/animales.service';
+import { GeneroEnum } from 'src/app/entites/generoEnum';
 
 
 @Component({
@@ -14,8 +15,8 @@ import { AnimalesService } from 'src/app/core/servicios/animales.service';
 export class RegistroComponent implements OnInit {
   private entidad: EntidadRegistro;
   private registroAnimalForm: FormGroup;
-  private animalesHembra: Animal[];
-  private animalesMacho: Animal[];
+  private animalesHembra: DatosAnimal[];
+  private animalesMacho: DatosAnimal[];
 
   private mensajes_error = {
     'nombre': [
@@ -63,7 +64,7 @@ export class RegistroComponent implements OnInit {
     });
   }
 
-  public registrar(modelo: EntidadRegistro) {
+  public registrar() {
     console.log("Validado")
   }
 
@@ -77,15 +78,13 @@ export class RegistroComponent implements OnInit {
   }
 
   private obtenerListas() {
-    console.log("Obtener")
-    this.animalService.listarAnimales('Hembra').subscribe(
+    this.animalService.listarAnimales(GeneroEnum.HEMBRA).subscribe(
+      data => { this.animalesHembra = (data)},
+      err => console.log(err)
+    );
+    this.animalService.listarAnimales(GeneroEnum.MACHO).subscribe(
       data => { this.animalesMacho = (data)},
       err => console.log(err)
     );
-
-    /*this.animalService.listarAnimales('Macho').subscribe(
-      animales => {
-      this.animalesMacho = animales;
-    });*/
   }
 }
