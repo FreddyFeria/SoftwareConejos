@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EntidadRegistro } from '../../entidades/entidad-registro';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { FormControl } from '@angular/forms';
+import { Animal } from 'src/app/entites/animal';
+import { AnimalesService } from 'src/app/core/servicios/animales.service';
 
 
 @Component({
@@ -11,8 +13,11 @@ import { FormControl } from '@angular/forms';
 })
 export class RegistroComponent implements OnInit {
   private entidad: EntidadRegistro;
-  registroAnimalForm: FormGroup;
-  mensajes_error = {
+  private registroAnimalForm: FormGroup;
+  private animalesHembra: Animal[];
+  private animalesMacho: Animal[];
+
+  private mensajes_error = {
     'nombre': [
       { type: 'required', message: 'El campo nombre es obligatorio' },
       { type: 'maxlength', message: 'El nombre no puede superar los 25 caracteres' }
@@ -35,16 +40,17 @@ export class RegistroComponent implements OnInit {
     ]
   }
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private animalService: AnimalesService) {
     this.entidad = {} as EntidadRegistro;
     this.createForm();
+    this.obtenerListas();
   }
 
   ngOnInit() {
 
   }
 
-  createForm() {
+  private createForm() {
     this.registroAnimalForm = this.formBuilder.group({
       nombre: new FormControl(this.entidad.nombre, [Validators.required, Validators.maxLength(25)]),
       color: new FormControl(this.entidad.color, Validators.required),
@@ -56,16 +62,30 @@ export class RegistroComponent implements OnInit {
       fechaNacimiento: new FormControl(this.entidad.fechaNacimiento, Validators.required)
     });
   }
-  registrar(modelo: EntidadRegistro) {
+
+  public registrar(modelo: EntidadRegistro) {
     console.log("Validado")
   }
 
-  getErrorMessage(control: string) {
+  public getErrorMessage(control: string) {
     let formControl: AbstractControl;
     formControl = this.registroAnimalForm.get(control);
     if (formControl.dirty || formControl.touched) {
       var errorType = Object.keys(formControl.errors)[0];
-      return (this.mensajes_error[control].find((x: {type: string; message: string;}) => x.type == errorType).message);
+      return (this.mensajes_error[control].find((x: { type: string; message: string; }) => x.type == errorType).message);
     }
+  }
+
+  private obtenerListas() {
+    console.log("Obtener")
+    this.animalService.listarAnimales('Hembra').subscribe(
+      data => { this.animalesMacho = (data)},
+      err => console.log(err)
+    );
+
+    /*this.animalService.listarAnimales('Macho').subscribe(
+      animales => {
+      this.animalesMacho = animales;
+    });*/
   }
 }
