@@ -1,6 +1,8 @@
 import { GeneroEnum } from './generoEnum';
+import { Deserializable } from './deserializable';
+import { AnimalModel } from './animalModel';
 
-export interface DatosAnimal {
+export class DatosAnimal implements Deserializable, AnimalModel {
     id: Number;
     nombre: String;
     color: String;
@@ -11,4 +13,10 @@ export interface DatosAnimal {
     madre: String;
     fechaNacimiento: Date;
     foto: String;
+
+    deserialize(input: any) {
+        Object.assign(this, input);
+        return this;
+    }
+
 }
