@@ -65,8 +65,6 @@ export class RegistroComponent implements OnInit {
   }
 
   public registrar() {
-    let nuevoAnimal : DatosAnimal;
-    nuevoAnimal = new DatosAnimal().deserialize(this.registroAnimalForm.value);
     console.log("Validado")
   }
 

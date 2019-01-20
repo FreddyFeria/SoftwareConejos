@@ -1,4 +1,4 @@
-export class ItemMenu {
+export interface ItemMenu {
     icono: string;
     nombre: string;
     ruta: string;

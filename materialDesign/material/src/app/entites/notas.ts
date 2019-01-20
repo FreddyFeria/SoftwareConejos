@@ -1,4 +1,4 @@
-export class ItemNota {
+export interface ItemNota {
     id: number;
     fecha: Date;
     texto: string;
