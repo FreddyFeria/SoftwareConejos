@@ -7,12 +7,14 @@ import { CoreModule } from "./core/core.module";
 import { AngularMaterialModule } from "./angular-material/angular-material.module";
 import { FormsModule } from '@angular/forms';
 
-import { NavegacionComponent } from './navegacion/navegacion.component'
+import { NavegacionComponent } from './navegacion/navegacion.component';
+import { ListarComponent } from './adultos/paginas/listar/listar.component'
 
 
 @NgModule({
   declarations: [
-    NavegacionComponent
+    NavegacionComponent,
+    ListarComponent
   ],
   imports: [
     BrowserAnimationsModule,

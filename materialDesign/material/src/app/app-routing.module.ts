@@ -9,8 +9,8 @@ const routes: Routes = [
   component: MyDashboardComponent
   },*/
   {
-    path: 'registro',
-    loadChildren: './registro/registro.module#RegistroModule'
+    path: 'adultos',
+    loadChildren: './adultos/adultos.module#AdultosModule'
   }
   
 ];

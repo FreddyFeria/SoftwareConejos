@@ -6,18 +6,19 @@ import { AngularMaterialModule } from "../angular-material/angular-material.modu
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { RegistroRoutingModule } from './registro-routing.module';
+import { AdultosRoutingModule } from './adultos-routing.module';
 import { RegistroComponent } from './paginas/registro/registro.component';
+import { ListarComponent } from './paginas/listar/listar.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RegistroRoutingModule,
+    AdultosRoutingModule,
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule
   ],
-  declarations: [RegistroComponent]
+  declarations: [RegistroComponent, ListarComponent]
 })
-export class RegistroModule { }
+export class AdultosModule { }

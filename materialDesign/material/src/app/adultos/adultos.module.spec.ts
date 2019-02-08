@@ -1,10 +1,10 @@
-import { RegistroModule } from './registro.module';
+import { AdultosModule } from './adultos.module';
 
 describe('RegistroModule', () => {
-  let registroModule: RegistroModule;
+  let registroModule: AdultosModule;
 
   beforeEach(() => {
-    registroModule = new RegistroModule();
+    registroModule = new AdultosModule();
   });
 
   it('should create an instance', () => {
