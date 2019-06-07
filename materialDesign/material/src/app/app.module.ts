@@ -8,20 +8,20 @@ import { AngularMaterialModule } from "./angular-material/angular-material.modul
 import { FormsModule } from '@angular/forms';
 
 import { NavegacionComponent } from './navegacion/navegacion.component';
-import { ListarComponent } from './adultos/paginas/listar/listar.component'
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    NavegacionComponent,
-    ListarComponent
+    NavegacionComponent
   ],
   imports: [
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule.forRoot(),
     AngularMaterialModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [NavegacionComponent]
