@@ -31,9 +31,9 @@ export class GridComponentComponent implements OnInit {
     const col_map = new Map([
       ['xs', 1],
       ['sm', 4],
-      ['md', 8],
-      ['lg', 10],
-      ['xl', 18]
+      ['md', 6],
+      ['lg', 8],
+      ['xl', 10]
     ]);
 
     col_map.forEach((cols, mqAlias) => {

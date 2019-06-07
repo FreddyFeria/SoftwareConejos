@@ -1,6 +1,5 @@
 <mat-grid-list [cols]="cols | async">
   <mat-grid-tile *ngFor="let card of cards">
-    <p>{{ card.name }}</p>
-    <!-->app-dashboard-cards-spawner [card]="card"></app-dashboard-cards-spawner-->
+    <app-grid-cards-spawner [card]="card"></app-grid-cards-spawner>
   </mat-grid-tile>
 </mat-grid-list>

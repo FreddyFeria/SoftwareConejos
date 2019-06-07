@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GridCardsService, GridCard } from 'src/app/shared';
-import { GridAnimalesService } from '../../servicios/grid-animales.service';
 import { AnimalGridCardComponent } from './animal-grid-card/animal-grid-card.component';
+import { GridAnimalesService } from '../../servicios/grid-animales.service';
 
 @Component({
   selector: 'app-listar',
@@ -13,13 +13,10 @@ import { AnimalGridCardComponent } from './animal-grid-card/animal-grid-card.com
 
 })
 export class ListarComponent implements OnInit {
-  animalService : GridAnimalesService;
+  animalService : GridCardsService;
 
-  constructor(gridService : GridAnimalesService) {
+  constructor(gridService : GridCardsService) {
     this.animalService = gridService;
-    gridService.cards.subscribe(cards => {
-      console.log(cards);
-    });
   }
 
   actualizarServicio() {
@@ -47,8 +44,6 @@ export class ListarComponent implements OnInit {
     )
   }
 
-  ngOnInit() {
-    this.actualizarServicio();
-  }
+  ngOnInit() { }
 
 }

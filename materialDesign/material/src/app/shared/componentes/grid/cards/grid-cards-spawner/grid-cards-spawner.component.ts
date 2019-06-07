@@ -8,22 +8,19 @@ import {GridCard} from '../grid-card';
 })
 export class GridCardsSpawnerComponent implements OnInit {
   @ViewChild('spawn', {read: ViewContainerRef}) container;
-  @Input() card: GridCard;
 
   constructor(private resolver: ComponentFactoryResolver) {
-    this.setCard();
   }
 
-
-  setCard(){
-    if (!this.card) {
+  @Input() set card(data: GridCard) {
+    if (!data) {
       return;
     }
-    const inputProviders = Object.keys(this.card.input).map((inputName) => {
-      return {provide: this.card.input[inputName].key, useValue: this.card.input[inputName].value, deps: []};
+    const inputProviders = Object.keys(data.input).map((inputName) => {
+      return {provide: data.input[inputName].key, useValue: data.input[inputName].value, deps: []};
     });
     const injector = Injector.create(inputProviders, this.container.parentInjector);
-    const factory = this.resolver.resolveComponentFactory(this.card.component);
+    const factory = this.resolver.resolveComponentFactory(data.component);
     const component = factory.create(injector);
     this.container.insert(component.hostView);
   }

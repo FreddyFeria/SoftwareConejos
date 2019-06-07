@@ -3,7 +3,10 @@ import { GridCardsService } from 'src/app/shared/';
 import { GridCard } from 'src/app/shared/';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+
 export class GridAnimalesService implements GridCardsService {
   private _cards: BehaviorSubject<GridCard[]> = new BehaviorSubject<GridCard[]>([]);
   
@@ -14,7 +17,7 @@ export class GridAnimalesService implements GridCardsService {
     this._cards.next(this._cards.getValue());
   }
     
-   get cards(): Observable<GridCard[]> {
+  get cards(): Observable<GridCard[]> {
     return this._cards.asObservable();
   }
 
