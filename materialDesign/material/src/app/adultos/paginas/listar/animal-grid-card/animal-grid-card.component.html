@@ -1,24 +1,24 @@
-<!-->mat-card style="margin: 15px;" class="mat-elevation-z15" fxFlex fxLayoutAlign="space-between" fxLayout="column">
-  <mat-card-header>
-    <mat-card-title>{{name}}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content fxLayout="column" fxLayoutAlign="space-between" fxFlex>
-    <p> content </p>
-  </mat-card-content>
-  <mat-card-footer>
-    <mat-card-actions fxFlex>
-      <button mat-raised-button color="primary">button1</button>
-      <button mat-raised-button color="primary">button2</button>
-    </mat-card-actions>
-  </mat-card-footer>
-</mat-card-->
 <mat-card>
-    <mat-card-header>
-      <mat-card-title>Nombre</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p> content </p>
-      <button mat-raised-button color="primary">button1</button>
-      <button mat-raised-button color="primary">button2</button>
-    </mat-card-content>
-  </mat-card>
+  <!-->img mat-card-image class="img-responsive img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg"-->
+  <mat-card-header>
+    <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg">
+    <mat-card-title>Nombre: Nuevo nombre Paquita</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      <b>Edad:</b> 12 años -
+      <b>Peso:</b> 12Kg
+    </p>
+    <p>
+      <b>Ubicacion:</b> C12P15
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>attach_money</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

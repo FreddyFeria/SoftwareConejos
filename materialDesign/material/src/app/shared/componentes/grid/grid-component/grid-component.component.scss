@@ -1,4 +1,5 @@
-:host {
-    height: 100%;
-    width: 100%;
-  }
+mat-grid-list {
+    flex-grow: 1;
+    border: 3px solid green;
+    overflow: overflow-y;
+}
