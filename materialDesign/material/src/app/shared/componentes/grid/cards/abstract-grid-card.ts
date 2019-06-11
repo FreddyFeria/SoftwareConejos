@@ -1,8 +1,9 @@
 export abstract class AbstractGridCard {
   constructor(private _name: string,
               private _routerLink: string,
-              private _iconClass: string,
-              private _color: string) {
+              private _color: string,
+              private _col: string,
+              private _row: string,) {
   }
 
   get name(): string {
@@ -13,8 +14,12 @@ export abstract class AbstractGridCard {
     return this._routerLink;
   }
 
-  get iconClass(): string {
-    return this._iconClass;
+  get col(): string {
+    return this._col;
+  }
+
+  get row(): string {
+    return this._row;
   }
 
   get color(): string {

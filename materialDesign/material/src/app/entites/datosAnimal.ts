@@ -3,16 +3,16 @@ import { Deserializable } from './deserializable';
 import { AnimalModel } from './animalModel';
 
 export class DatosAnimal implements Deserializable, AnimalModel {
-    id: Number;
-    nombre: String;
-    color: String;
-    raza: String;
+    id: number;
+    nombre: string;
+    color: string;
+    raza: string;
     sexo: GeneroEnum;
-    peso: String;
-    padre: String;
-    madre: String;
+    peso: string;
+    padre: string;
+    madre: string;
     fechaNacimiento: Date;
-    foto: String;
+    foto: string;
 
     deserialize(input: any) {
         Object.assign(this, input);

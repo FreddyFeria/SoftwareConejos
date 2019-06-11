@@ -8,6 +8,8 @@ import { GridCardsSpawnerComponent } from './componentes/grid/cards/grid-cards-s
 import { GridComponentComponent } from './componentes/grid/grid-component/grid-component.component';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
+import {GridModule} from '@angular/flex-layout/grid';
+
 @NgModule({
   declarations: [
     NotasComponent, 
@@ -18,7 +20,8 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
   imports: [
     CommonModule,
     SharedRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    GridModule
   ],
   exports: [
     GridComponentComponent

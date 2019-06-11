@@ -1,5 +1,5 @@
-<mat-grid-list [cols]="cols | async" [rowHeight]="rowRelation | async" gutterSize = '10px'>
-  <mat-grid-tile *ngFor="let card of cards">
+<div gdColumns="repeat(3, 1fr)" gdColumns.xs="1fr" gdAlignColumns="start center" gdGap="10px">
+  <div *ngFor="let card of cards">
     <app-grid-cards-spawner [card]="card"></app-grid-cards-spawner>
-  </mat-grid-tile>
-</mat-grid-list>
+  </div>
+</div>
