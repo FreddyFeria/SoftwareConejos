@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GridCardsService } from 'src/app/shared';
 import { GridAnimalesService } from '../../servicios/grid-animales.service';
+import { DatosAnimal } from 'src/app/entites/datosAnimal';
 
 @Component({
   selector: 'app-listar',
@@ -19,6 +20,12 @@ export class ListarComponent implements OnInit {
   }
 
   actualizarServicio() {
+    this.animalService.addCard(new DatosAnimal().deserialize({
+      id: 101,
+      nombre: "Conejo",
+      sexo: "Hembra",
+      peso: "21"
+    }))
   }
 
   ngOnInit() { }

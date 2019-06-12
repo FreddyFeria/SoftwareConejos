@@ -1,4 +1,10 @@
-<div gdColumns="repeat(3, 1fr)" gdColumns.xs="1fr" gdAlignColumns="start center" gdGap="10px">
+<div gdColumns="repeat(3, 1fr)" 
+      gdColumns.xs="1fr" 
+      gdColumns.gt-md="repeat(6, 1fr)" 
+      gdAlignColumns="start center" 
+      gdGap="10px"
+      fxFlexFill
+      class="content">
   <div *ngFor="let card of cards">
     <app-grid-cards-spawner [card]="card"></app-grid-cards-spawner>
   </div>

@@ -7,7 +7,8 @@ export class GridCard {
     ROUTERLINK: new InjectionToken<string>('routerLink'),
     COLOR: new InjectionToken<string>('color'),
     COLS: new InjectionToken<Observable<number>>('cols'),
-    ROWS: new InjectionToken<Observable<number>>('rows')
+    ROWS: new InjectionToken<Observable<number>>('rows'),
+    DATA: new InjectionToken<any>('data')
   };
 
   constructor(private _input: {
@@ -30,6 +31,10 @@ export class GridCard {
     color: {
       key: InjectionToken<string>,
       value: string
+    },
+    data: {
+      key: InjectionToken<string>,
+      value: any
     }
   }, private _component: any) {
   }

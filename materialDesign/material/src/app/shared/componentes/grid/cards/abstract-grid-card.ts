@@ -3,7 +3,8 @@ export abstract class AbstractGridCard {
               private _routerLink: string,
               private _color: string,
               private _col: string,
-              private _row: string,) {
+              private _row: string,
+              private _data: any) {
   }
 
   get name(): string {
@@ -24,5 +25,9 @@ export abstract class AbstractGridCard {
 
   get color(): string {
     return this._color;
+  }
+
+  get data(): string {
+    return this._data;
   }
 }
