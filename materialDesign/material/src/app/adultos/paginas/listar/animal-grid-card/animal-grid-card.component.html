@@ -1,0 +1,24 @@
+<mat-card>
+  <!-->img mat-card-image class="img-responsive img-circle" src="https://material.angular.io/assets/img/examples/shiba1.jpg"-->
+  <mat-card-header>
+    <img mat-card-avatar src="https://material.angular.io/assets/img/examples/shiba1.jpg">
+    <mat-card-title>Nombre: {{ datosAnimal.nombre }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      <b>Edad:</b> 12 años -
+      <b>Peso:</b> {{ datosAnimal.peso }}Kg
+    </p>
+    <p>
+      <b>Ubicacion:</b> C12P15
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>attach_money</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

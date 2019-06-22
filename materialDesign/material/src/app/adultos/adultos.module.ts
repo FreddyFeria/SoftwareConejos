@@ -9,6 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdultosRoutingModule } from './adultos-routing.module';
 import { RegistroComponent } from './paginas/registro/registro.component';
 import { ListarComponent } from './paginas/listar/listar.component';
+//import { GridAnimalesService } from './servicios/grid-animales.service';
+import { SharedModule } from '../shared/shared.module';
+import { AnimalGridCardComponent } from './paginas/listar/animal-grid-card/animal-grid-card.component';
 
 @NgModule({
   imports: [
@@ -17,8 +20,20 @@ import { ListarComponent } from './paginas/listar/listar.component';
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SharedModule
   ],
-  declarations: [RegistroComponent, ListarComponent]
+  declarations: [
+    RegistroComponent, 
+    ListarComponent, 
+    AnimalGridCardComponent
+  ],
+  providers: [],
+  exports: [
+    AnimalGridCardComponent
+  ],
+  entryComponents: [
+    AnimalGridCardComponent
+  ]
 })
 export class AdultosModule { }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DatosAnimal } from 'src/app/entites/DatosAnimal';
+import { DatosAnimal } from 'src/app/entites/datosAnimal';
 import { of } from 'rxjs';
 import { GeneroEnum } from 'src/app/entites/generoEnum';
 
